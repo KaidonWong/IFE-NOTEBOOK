@@ -1,0 +1,53 @@
+.a.b{
+同时要有两个类
+}
+
+.a .b{
+a 下面的子类b  中间有间隔也可以，不是直接子类也可以
+}
+
+连接还可以这样用
+    <a name="a" href="#c">to C</a>
+    <div id="a">a</div>
+    <a name="b" href="#c">to C</a>
+    <div id="b">b</div>
+    <a name="c" href="#c">to C</a>
+    <div id="c">c</div>
+
+网页中的网页
+<frameset cols="25%,75%">
+   <frame src="frame_a.htm">
+   <frame src="frame_b.htm">
+</frameset>
+
+内联框架，OA系统是不是可以这样设计呢？
+<iframe src="demo_iframe.htm" name="iframe_a"></iframe>
+<p><a href="http://www.w3school.com.cn" target="iframe_a">W3School.com.cn</a></p>
+
+默认地址，默认目标
+<head>
+<base href="http://www.w3school.com.cn/images/" />
+<base target="_blank" />
+</head>
+
+
+字体控制
+html {
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+p {
+  font-size: 1.4rem;
+  color: red;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
+
+
+
