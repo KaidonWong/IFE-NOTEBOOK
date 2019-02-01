@@ -1,0 +1,177 @@
+/********************************************JQUERY*********************************************/
+5, jquery 获取input框中的值；$("#id").val()
+
+删除本元素
+$("#id").remove()
+删除子元素
+$("#id").empty()
+
+12，jquery可以直接修改style里面的内容
+<div style="background-color:#ffffff;padding-left:10px;">测试jQuery动态获取padding-left</div>
+
+返回值
+var a = $("div").css("padding-left"));
+修改值
+$("div").css("color","yellow");
+
+13，jquery 修改属性值
+
+返回属性的值：
+$(selector).attr(attribute)
+设置属性和值：
+$(selector).attr(attribute,value)
+
+14，jquery 添加或者删除class
+
+$(".default").addClass("hover_s");
+$(".default").removeClass("default");
+
+15,  鼠标悬停，两个callback，在上面/不在上面
+$("p").hover(function(){
+    $("p").css("background-color","yellow");
+},function(){
+    $("p").css("background-color","pink");
+});
+
+16，JQUERY 点击事件 获取当前元素，那个this 竟然是DOM！
+        $(".filter-type").click(function () {
+    
+            var original_src = $(this).attr('src');
+	}
+
+/********************************************JQUERY*********************************************/
+/********************************************BOOTSTRAP*********************************************/
+
+align item center 有级联的概念，父元素不在居中位置，子元素当然也不会在居中位置；
+
+
+
+
+
+
+/********************************************BOOTSTRAP*********************************************/
+
+1，mybatis 的mapper 返回结果是一个代理对象，如果你使用了懒加载，同时又把代理对象当作responseBody，序列化的时候
+会懒加载所有属性；
+
+2，power designer在新建物理模型时候，要选上数据库类型，否则自增列的设置就会没有；
+
+3，主键回传：
+  注意看keyProperty
+
+    int addBoard(@Param("board") Board board);
+
+    <insert id="addBoard" useGeneratedKeys="true" keyProperty="board.id">
+        insert into t_board(blog_count,title,description)
+        values (#{board.blogCount},#{board.title},#{board.description});
+    </insert>
+
+4, form 表单的提交会刷新页面， 使用AJAX就不会刷新页面，所以那个表单和ajaxForm就别再用了！就用$.ajax
+
+5, jquery 获取input框中的值；$("#id").val()
+
+删除本元素
+$("#id").remove()
+删除子元素
+$("#id").empty()
+
+6，用这种方式把EL的值传递给某个隐藏的控件，从而传值给单独的js文件
+<input id="context_path" value="${context_path}" style="display: none">
+
+7, bt w-25 可以控制宽度百分比
+
+8, chrome 查看css 蓝色是padding以下的部分，绿色才是border以下的部分
+
+9，bt border border-primary 控制边界
+
+10，js 页面刷新
+window.location.reload();
+js 页面打开新的标签页
+window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+
+"${context_path}"+"/one-board.htm?boardId="+boardId);
+
+11，bt 上下位移的几种方法   : align-items-center 和 justify-content-between 都是对子元素生效
+<div class="container">
+  <div class="row">
+    <div class="col align-self-start">
+      One of three columns
+    </div>
+    <div class="col align-self-center">
+      One of three columns
+    </div>
+    <div class="col align-self-end">
+      One of three columns
+    </div>
+  </div>
+</div>
+
+  <div class="row align-items-center">  //所有子元素都居中
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+  </div>
+
+
+因为有了d-flex, 子元素们不会换行了，而是平行的摆在了一起，所以可以直接用align-items-center 来上下位移
+<div class="d-flex align-items-center">...</div>
+
+同理，水平位移也适用于d-flex
+<div class="d-flex justify-content-between">...</div>
+
+
+12，jquery可以直接修改style里面的内容
+<div style="background-color:#ffffff;padding-left:10px;">测试jQuery动态获取padding-left</div>
+
+	返回值
+	var a = $("div").css("padding-left"));
+	修改值
+	$("div").css("color","yellow");
+
+13，jquery 修改属性值
+返回属性的值：
+
+$(selector).attr(attribute)
+设置属性和值：
+
+$(selector).attr(attribute,value)
+
+
+14，jquery 添加或者删除class
+$(".default").addClass("hover_s");
+$(".default").removeClass("default ");
+
+15,  鼠标悬停，两个callback，在上面/不在上面
+$("p").hover(function(){
+    $("p").css("background-color","yellow");
+},function(){
+    $("p").css("background-color","pink");
+});
+
+
+16，打开一个新的窗口
+<a href="/index.html" target="_blank">这是一个链接。</a>
+
+17，鼠标悬浮的动画就这样就行了
+a:hover {opacity: 0.7}
+
+技术：
+百度的echart，大数据图形化展示；
+百度做了一个clayGL，感觉就是webGL，准备直接学习webGL，HTML5上直接渲染3D图像；
+
+react让组件的更新 方便，易于维护；
+
+16，JQUERY 点击事件 获取当前元素，那个this 竟然是DOM！
+        $(".filter-type").click(function () {
+    
+            var original_src = $(this).attr('src');
+	}
+
+17，leaflet 的map z-index 设置为0，似乎就可以不覆盖其它元素了？
+
+
