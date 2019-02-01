@@ -1,39 +1,39 @@
 /********************************************JQUERY*********************************************/
-5, jquery »ñÈ¡input¿òÖĞµÄÖµ£»$("#id").val()
+5, jquery è·å–inputæ¡†ä¸­çš„å€¼ï¼›$("#id").val()
 
-É¾³ı±¾ÔªËØ
+åˆ é™¤æœ¬å…ƒç´ 
 $("#id").remove()
-É¾³ı×ÓÔªËØ
+åˆ é™¤å­å…ƒç´ 
 $("#id").empty()
 
-12£¬jquery¿ÉÒÔÖ±½ÓĞŞ¸ÄstyleÀïÃæµÄÄÚÈİ
-<div style="background-color:#ffffff;padding-left:10px;">²âÊÔjQuery¶¯Ì¬»ñÈ¡padding-left</div>
+12ï¼Œjqueryå¯ä»¥ç›´æ¥ä¿®æ”¹styleé‡Œé¢çš„å†…å®¹
+<div style="background-color:#ffffff;padding-left:10px;">æµ‹è¯•jQueryåŠ¨æ€è·å–padding-left</div>
 
-·µ»ØÖµ
+è¿”å›å€¼
 var a = $("div").css("padding-left"));
-ĞŞ¸ÄÖµ
+ä¿®æ”¹å€¼
 $("div").css("color","yellow");
 
-13£¬jquery ĞŞ¸ÄÊôĞÔÖµ
+13ï¼Œjquery ä¿®æ”¹å±æ€§å€¼
 
-·µ»ØÊôĞÔµÄÖµ£º
+è¿”å›å±æ€§çš„å€¼ï¼š
 $(selector).attr(attribute)
-ÉèÖÃÊôĞÔºÍÖµ£º
+è®¾ç½®å±æ€§å’Œå€¼ï¼š
 $(selector).attr(attribute,value)
 
-14£¬jquery Ìí¼Ó»òÕßÉ¾³ıclass
+14ï¼Œjquery æ·»åŠ æˆ–è€…åˆ é™¤class
 
 $(".default").addClass("hover_s");
 $(".default").removeClass("default");
 
-15,  Êó±êĞüÍ££¬Á½¸öcallback£¬ÔÚÉÏÃæ/²»ÔÚÉÏÃæ
+15,  é¼ æ ‡æ‚¬åœï¼Œä¸¤ä¸ªcallbackï¼Œåœ¨ä¸Šé¢/ä¸åœ¨ä¸Šé¢
 $("p").hover(function(){
     $("p").css("background-color","yellow");
 },function(){
     $("p").css("background-color","pink");
 });
 
-16£¬JQUERY µã»÷ÊÂ¼ş »ñÈ¡µ±Ç°ÔªËØ£¬ÄÇ¸öthis ¾¹È»ÊÇDOM£¡
+16ï¼ŒJQUERY ç‚¹å‡»äº‹ä»¶ è·å–å½“å‰å…ƒç´ ï¼Œé‚£ä¸ªthis ç«Ÿç„¶æ˜¯DOMï¼
         $(".filter-type").click(function () {
     
             var original_src = $(this).attr('src');
@@ -42,7 +42,7 @@ $("p").hover(function(){
 /********************************************JQUERY*********************************************/
 /********************************************BOOTSTRAP*********************************************/
 
-align item center ÓĞ¼¶ÁªµÄ¸ÅÄî£¬¸¸ÔªËØ²»ÔÚ¾ÓÖĞÎ»ÖÃ£¬×ÓÔªËØµ±È»Ò²²»»áÔÚ¾ÓÖĞÎ»ÖÃ£»
+align item center æœ‰çº§è”çš„æ¦‚å¿µï¼Œçˆ¶å…ƒç´ ä¸åœ¨å±…ä¸­ä½ç½®ï¼Œå­å…ƒç´ å½“ç„¶ä¹Ÿä¸ä¼šåœ¨å±…ä¸­ä½ç½®ï¼›
 
 
 
@@ -51,13 +51,13 @@ align item center ÓĞ¼¶ÁªµÄ¸ÅÄî£¬¸¸ÔªËØ²»ÔÚ¾ÓÖĞÎ»ÖÃ£¬×ÓÔªËØµ±È»Ò²²»»áÔÚ¾ÓÖĞÎ»ÖÃ£»
 
 /********************************************BOOTSTRAP*********************************************/
 
-1£¬mybatis µÄmapper ·µ»Ø½á¹ûÊÇÒ»¸ö´úÀí¶ÔÏó£¬Èç¹ûÄãÊ¹ÓÃÁËÀÁ¼ÓÔØ£¬Í¬Ê±ÓÖ°Ñ´úÀí¶ÔÏóµ±×÷responseBody£¬ĞòÁĞ»¯µÄÊ±ºò
-»áÀÁ¼ÓÔØËùÓĞÊôĞÔ£»
+1ï¼Œmybatis çš„mapper è¿”å›ç»“æœæ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œå¦‚æœä½ ä½¿ç”¨äº†æ‡’åŠ è½½ï¼ŒåŒæ—¶åˆæŠŠä»£ç†å¯¹è±¡å½“ä½œresponseBodyï¼Œåºåˆ—åŒ–çš„æ—¶å€™
+ä¼šæ‡’åŠ è½½æ‰€æœ‰å±æ€§ï¼›
 
-2£¬power designerÔÚĞÂ½¨ÎïÀíÄ£ĞÍÊ±ºò£¬ÒªÑ¡ÉÏÊı¾İ¿âÀàĞÍ£¬·ñÔò×ÔÔöÁĞµÄÉèÖÃ¾Í»áÃ»ÓĞ£»
+2ï¼Œpower designeråœ¨æ–°å»ºç‰©ç†æ¨¡å‹æ—¶å€™ï¼Œè¦é€‰ä¸Šæ•°æ®åº“ç±»å‹ï¼Œå¦åˆ™è‡ªå¢åˆ—çš„è®¾ç½®å°±ä¼šæ²¡æœ‰ï¼›
 
-3£¬Ö÷¼ü»Ø´«£º
-  ×¢Òâ¿´keyProperty
+3ï¼Œä¸»é”®å›ä¼ ï¼š
+  æ³¨æ„çœ‹keyProperty
 
     int addBoard(@Param("board") Board board);
 
@@ -66,31 +66,31 @@ align item center ÓĞ¼¶ÁªµÄ¸ÅÄî£¬¸¸ÔªËØ²»ÔÚ¾ÓÖĞÎ»ÖÃ£¬×ÓÔªËØµ±È»Ò²²»»áÔÚ¾ÓÖĞÎ»ÖÃ£»
         values (#{board.blogCount},#{board.title},#{board.description});
     </insert>
 
-4, form ±íµ¥µÄÌá½»»áË¢ĞÂÒ³Ãæ£¬ Ê¹ÓÃAJAX¾Í²»»áË¢ĞÂÒ³Ãæ£¬ËùÒÔÄÇ¸ö±íµ¥ºÍajaxForm¾Í±ğÔÙÓÃÁË£¡¾ÍÓÃ$.ajax
+4, form è¡¨å•çš„æäº¤ä¼šåˆ·æ–°é¡µé¢ï¼Œ ä½¿ç”¨AJAXå°±ä¸ä¼šåˆ·æ–°é¡µé¢ï¼Œæ‰€ä»¥é‚£ä¸ªè¡¨å•å’ŒajaxFormå°±åˆ«å†ç”¨äº†ï¼å°±ç”¨$.ajax
 
-5, jquery »ñÈ¡input¿òÖĞµÄÖµ£»$("#id").val()
+5, jquery è·å–inputæ¡†ä¸­çš„å€¼ï¼›$("#id").val()
 
-É¾³ı±¾ÔªËØ
+åˆ é™¤æœ¬å…ƒç´ 
 $("#id").remove()
-É¾³ı×ÓÔªËØ
+åˆ é™¤å­å…ƒç´ 
 $("#id").empty()
 
-6£¬ÓÃÕâÖÖ·½Ê½°ÑELµÄÖµ´«µİ¸øÄ³¸öÒş²ØµÄ¿Ø¼ş£¬´Ó¶ø´«Öµ¸øµ¥¶ÀµÄjsÎÄ¼ş
+6ï¼Œç”¨è¿™ç§æ–¹å¼æŠŠELçš„å€¼ä¼ é€’ç»™æŸä¸ªéšè—çš„æ§ä»¶ï¼Œä»è€Œä¼ å€¼ç»™å•ç‹¬çš„jsæ–‡ä»¶
 <input id="context_path" value="${context_path}" style="display: none">
 
-7, bt w-25 ¿ÉÒÔ¿ØÖÆ¿í¶È°Ù·Ö±È
+7, bt w-25 å¯ä»¥æ§åˆ¶å®½åº¦ç™¾åˆ†æ¯”
 
-8, chrome ²é¿´css À¶É«ÊÇpaddingÒÔÏÂµÄ²¿·Ö£¬ÂÌÉ«²ÅÊÇborderÒÔÏÂµÄ²¿·Ö
+8, chrome æŸ¥çœ‹css è“è‰²æ˜¯paddingä»¥ä¸‹çš„éƒ¨åˆ†ï¼Œç»¿è‰²æ‰æ˜¯borderä»¥ä¸‹çš„éƒ¨åˆ†
 
-9£¬bt border border-primary ¿ØÖÆ±ß½ç
+9ï¼Œbt border border-primary æ§åˆ¶è¾¹ç•Œ
 
-10£¬js Ò³ÃæË¢ĞÂ
+10ï¼Œjs é¡µé¢åˆ·æ–°
 window.location.reload();
-js Ò³Ãæ´ò¿ªĞÂµÄ±êÇ©Ò³
+js é¡µé¢æ‰“å¼€æ–°çš„æ ‡ç­¾é¡µ
 window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+
 "${context_path}"+"/one-board.htm?boardId="+boardId);
 
-11£¬bt ÉÏÏÂÎ»ÒÆµÄ¼¸ÖÖ·½·¨   : align-items-center ºÍ justify-content-between ¶¼ÊÇ¶Ô×ÓÔªËØÉúĞ§
+11ï¼Œbt ä¸Šä¸‹ä½ç§»çš„å‡ ç§æ–¹æ³•   : align-items-center å’Œ justify-content-between éƒ½æ˜¯å¯¹å­å…ƒç´ ç”Ÿæ•ˆ
 <div class="container">
   <div class="row">
     <div class="col align-self-start">
@@ -105,7 +105,7 @@ window.open(window.location.protocol+"//"+window.location.hostname+":"+window.lo
   </div>
 </div>
 
-  <div class="row align-items-center">  //ËùÓĞ×ÓÔªËØ¶¼¾ÓÖĞ
+  <div class="row align-items-center">  //æ‰€æœ‰å­å…ƒç´ éƒ½å±…ä¸­
     <div class="col">
       One of three columns
     </div>
@@ -118,35 +118,35 @@ window.open(window.location.protocol+"//"+window.location.hostname+":"+window.lo
   </div>
 
 
-ÒòÎªÓĞÁËd-flex, ×ÓÔªËØÃÇ²»»á»»ĞĞÁË£¬¶øÊÇÆ½ĞĞµÄ°ÚÔÚÁËÒ»Æğ£¬ËùÒÔ¿ÉÒÔÖ±½ÓÓÃalign-items-center À´ÉÏÏÂÎ»ÒÆ
+å› ä¸ºæœ‰äº†d-flex, å­å…ƒç´ ä»¬ä¸ä¼šæ¢è¡Œäº†ï¼Œè€Œæ˜¯å¹³è¡Œçš„æ‘†åœ¨äº†ä¸€èµ·ï¼Œæ‰€ä»¥å¯ä»¥ç›´æ¥ç”¨align-items-center æ¥ä¸Šä¸‹ä½ç§»
 <div class="d-flex align-items-center">...</div>
 
-Í¬Àí£¬Ë®Æ½Î»ÒÆÒ²ÊÊÓÃÓÚd-flex
+åŒç†ï¼Œæ°´å¹³ä½ç§»ä¹Ÿé€‚ç”¨äºd-flex
 <div class="d-flex justify-content-between">...</div>
 
 
-12£¬jquery¿ÉÒÔÖ±½ÓĞŞ¸ÄstyleÀïÃæµÄÄÚÈİ
-<div style="background-color:#ffffff;padding-left:10px;">²âÊÔjQuery¶¯Ì¬»ñÈ¡padding-left</div>
+12ï¼Œjqueryå¯ä»¥ç›´æ¥ä¿®æ”¹styleé‡Œé¢çš„å†…å®¹
+<div style="background-color:#ffffff;padding-left:10px;">æµ‹è¯•jQueryåŠ¨æ€è·å–padding-left</div>
 
-	·µ»ØÖµ
+	è¿”å›å€¼
 	var a = $("div").css("padding-left"));
-	ĞŞ¸ÄÖµ
+	ä¿®æ”¹å€¼
 	$("div").css("color","yellow");
 
-13£¬jquery ĞŞ¸ÄÊôĞÔÖµ
-·µ»ØÊôĞÔµÄÖµ£º
+13ï¼Œjquery ä¿®æ”¹å±æ€§å€¼
+è¿”å›å±æ€§çš„å€¼ï¼š
 
 $(selector).attr(attribute)
-ÉèÖÃÊôĞÔºÍÖµ£º
+è®¾ç½®å±æ€§å’Œå€¼ï¼š
 
 $(selector).attr(attribute,value)
 
 
-14£¬jquery Ìí¼Ó»òÕßÉ¾³ıclass
+14ï¼Œjquery æ·»åŠ æˆ–è€…åˆ é™¤class
 $(".default").addClass("hover_s");
 $(".default").removeClass("default ");
 
-15,  Êó±êĞüÍ££¬Á½¸öcallback£¬ÔÚÉÏÃæ/²»ÔÚÉÏÃæ
+15,  é¼ æ ‡æ‚¬åœï¼Œä¸¤ä¸ªcallbackï¼Œåœ¨ä¸Šé¢/ä¸åœ¨ä¸Šé¢
 $("p").hover(function(){
     $("p").css("background-color","yellow");
 },function(){
@@ -154,24 +154,31 @@ $("p").hover(function(){
 });
 
 
-16£¬´ò¿ªÒ»¸öĞÂµÄ´°¿Ú
-<a href="/index.html" target="_blank">ÕâÊÇÒ»¸öÁ´½Ó¡£</a>
+16ï¼Œæ‰“å¼€ä¸€ä¸ªæ–°çš„çª—å£
+<a href="/index.html" target="_blank">è¿™æ˜¯ä¸€ä¸ªé“¾æ¥ã€‚</a>
 
-17£¬Êó±êĞü¸¡µÄ¶¯»­¾ÍÕâÑù¾ÍĞĞÁË
+17ï¼Œé¼ æ ‡æ‚¬æµ®çš„åŠ¨ç”»å°±è¿™æ ·å°±è¡Œäº†
 a:hover {opacity: 0.7}
 
-¼¼Êõ£º
-°Ù¶ÈµÄechart£¬´óÊı¾İÍ¼ĞÎ»¯Õ¹Ê¾£»
-°Ù¶È×öÁËÒ»¸öclayGL£¬¸Ğ¾õ¾ÍÊÇwebGL£¬×¼±¸Ö±½ÓÑ§Ï°webGL£¬HTML5ÉÏÖ±½ÓäÖÈ¾3DÍ¼Ïñ£»
+æŠ€æœ¯ï¼š
+ç™¾åº¦çš„echartï¼Œå¤§æ•°æ®å›¾å½¢åŒ–å±•ç¤ºï¼›
+ç™¾åº¦åšäº†ä¸€ä¸ªclayGLï¼Œæ„Ÿè§‰å°±æ˜¯webGLï¼Œå‡†å¤‡ç›´æ¥å­¦ä¹ webGLï¼ŒHTML5ä¸Šç›´æ¥æ¸²æŸ“3Då›¾åƒï¼›
 
-reactÈÃ×é¼şµÄ¸üĞÂ ·½±ã£¬Ò×ÓÚÎ¬»¤£»
+reactè®©ç»„ä»¶çš„æ›´æ–° æ–¹ä¾¿ï¼Œæ˜“äºç»´æŠ¤ï¼›
 
-16£¬JQUERY µã»÷ÊÂ¼ş »ñÈ¡µ±Ç°ÔªËØ£¬ÄÇ¸öthis ¾¹È»ÊÇDOM£¡
+16ï¼ŒJQUERY ç‚¹å‡»äº‹ä»¶ è·å–å½“å‰å…ƒç´ ï¼Œé‚£ä¸ªthis ç«Ÿç„¶æ˜¯DOMï¼
         $(".filter-type").click(function () {
     
             var original_src = $(this).attr('src');
 	}
 
-17£¬leaflet µÄmap z-index ÉèÖÃÎª0£¬ËÆºõ¾Í¿ÉÒÔ²»¸²¸ÇÆäËüÔªËØÁË£¿
+17ï¼Œleaflet çš„map z-index è®¾ç½®ä¸º0ï¼Œä¼¼ä¹å°±å¯ä»¥ä¸è¦†ç›–å…¶å®ƒå…ƒç´ äº†ï¼Ÿ
 
 
+18, <a name="tip"></>
+    <a href="#tip"</>
+å®ç°é¡µé¢çš„è‡ªåŠ¨æ»šåŠ¨
+
+20
+
+webedit
