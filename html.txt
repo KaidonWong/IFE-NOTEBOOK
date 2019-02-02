@@ -6,6 +6,19 @@
 a 下面的子类b  中间有间隔也可以，不是直接子类也可以
 }
 
+.a>.b {
+	必须是直属子类
+}
+
+.a~.b {
+  b在a的后面，兄弟节点
+}
+
+.a+.b {
+  b紧跟在a的后面，兄弟节点
+}
+
+
 连接还可以这样用
     <a name="a" href="#c">to C</a>
     <div id="a">a</div>
@@ -45,6 +58,103 @@ p {
   color: red;
   font-family: Helvetica, Arial, sans-serif;
 }
+
+
+属性选择器
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+}
+
+/* 所有具有"data-vegetable"属性且属性值包含"spicy"的元素，
+即使元素的属性中还包含其他属性值，都会被应用红色的文本颜色 */
+
+[data-vegetable~="spicy"] {
+  color: red;
+}
+
+伪类： 一个冒号
+:hover
+
+:checked
+
+:first-child
+
+:focus
+
+三的倍数
+li:nth-of-type(3n) {
+  background-color: #ccc;
+}
+
+伪元素：两个冒号
+::after
+::before
+::first-letter
+::first-line
+::selection
+::backdrop
+
+首行缩进
+text-indent  
+
+如果您希望背景色从元素中的文本向外少有延伸，只需增加一些内边距：
+p {background-color: gray; padding: 20px;}
+
+
+背景图片不断重复填充
+background-image: url(/i/eg_bg_03.gif);
+background-repeat: repeat
+
+列表前面编程图片
+ul 
+{
+list-style-image: url('/i/eg_arrow.gif')
+}
+
+
+  list-style-type: square;
+  list-style-image: url(example.png);
+  list-style-position: inside;  //outside
+
+
+url() 函数中的路径不加引号
+background: url(bg.png);
+
+
+盒模型
+height width 设置的是padding里的高度
+
+外边距有一个特别的行为被称作外边距塌陷（margin collapsing）：当两个框彼此接触时，它们的间距将取两个相邻外边界的最大值，而非两者的总和
+
+
+
+无论垂直还是水平，百分比值始终参考宽度
+  margin: 2%;
+  padding: 2%;
+
+block
+
+inline  与文字完全融入一体，宽高，margin等已经无法设置
+ 
+inline block  和block没啥区别，除了可以和文字在一行；
+
+居中的常见用法
+  width: 70%;
+  max-width: 1280px;
+  min-width: 480px;
+  margin: 0 auto;
+
+图片居中的好例子，不会overflow
+img {
+  /* Second bit of CSS from the article */
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
+
+
 
 
 
