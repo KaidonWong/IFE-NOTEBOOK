@@ -88,6 +88,8 @@ li:nth-of-type(3n) {
 
 伪元素：两个冒号
 ::after
+其实还在该元素范围内部，相当于最后一个子节点；
+
 ::before
 ::first-letter
 ::first-line
@@ -108,7 +110,7 @@ background-repeat: repeat
 列表前面编程图片
 ul 
 {
-list-style-image: url('/i/eg_arrow.gif')
+list-style-image: url(eg_arrow.gif)
 }
 
 
@@ -152,6 +154,23 @@ img {
   max-width: 100%;
 }
 
+闭合浮动的两种方法：
+其一，通过在浮动元素的末尾添加一个空元素，设置 clear：both属性，after伪元s素其实也是通过 content 在元素的后面生成了内容为一个点的块级元素；
+注意：必须要在父元素的最后一个子节点中加，::after
+
+其二，通过设置父元素 overflow 或者display：table 属性来闭合浮动；
+
+margin: 5% 意思是所在元素的父级总宽度的5%  实例：margin%.html
+
+CSS属性顺序规范：
+
+Formatting Model 相关属性包括：position / top / right / bottom / left / float / display / overflow 等
+Box Model 相关属性包括：border / margin / padding / width / height 等
+Typographic 相关属性包括：font / line-height / text-align / word-wrap 等
+Visual 相关属性包括：background / color / transition / list-style 等
+
+内联元素
+span  img  strong
 
 
 
