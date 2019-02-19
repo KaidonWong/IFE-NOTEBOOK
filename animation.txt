@@ -1,0 +1,19 @@
+3D动效中，容器一定要设置
+transform-style: preserve-3d;
+
+页面翻转的效果，巧妙运用了backface-visibility
+
+错误的用法：
+        <div class="pic" style="margin: 0 auto; width: 250px;height:350px">
+            <img src="img/正面.jpg">
+            <img src="img/反面.jpg">
+        </div>
+
+正确的用法：
+        <div class="pic" style="margin: 0 auto; width: 250px;height:350px">
+            <div style="height: 100%;width: 100%;background-image: url(img/反面.jpg);"></div>
+            <div style="height: 100%;width: 100%;background-image: url(img/正面.jpg);"></div>
+        </div>
+
+动画结束后，让动画停留在最后一帧
+animation-fill-mode: forwards

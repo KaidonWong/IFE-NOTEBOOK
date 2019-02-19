@@ -1,0 +1,93 @@
+var cars=new Array();
+cars[0]="Audi";
+cars[1]="BMW";
+cars[2]="Volvo";
+
+var cars=["Audi","BMW","Volvo"];
+
+var person;
+此时person 为undefined；
+null用来清空值；
+
+"5" == 5  是true
+"5" === 5 是false  (值和类型都要相等)
+
+不要这样写！ 用addEventListener("click",function)
+<button onclick="bgChange()">Press me</button>
+
+事件冒泡，为了让事件不要再传递下去；
+video.onclick = function(e) {
+  e.stopPropagation();
+  video.play();
+};
+
+DOM增加类
+div.classList.add("foo","bar");
+-》contains   remove
+
+键盘事件这样写，keycode淘汰
+function onKeyup(e){
+    if(e.key == 'ArrowDown') {
+
+
+
+DOM焦点的设置
+input.focus()
+
+
+
+获取兄弟节点有两种方法：
+1，获得父亲后再取儿子；
+let line = target.parentNode.children[2];
+
+2，let a = target.nextElementSibling;
+
+
+原型链：
+prototype 属性的值是一个对象，我们希望被原型链下游的对象继承的属性和方法，都被储存在其中。
+
+创建对象的方法：
+1. 原始模式
+var person = {
+    name: 'Jack',
+    age: 18,
+    sayName: function () { alert(this.name); }
+};
+2，工厂模式
+function creatPerson (name, age) {
+    var temp = new Object();
+    person.name = name;
+    person.age = age;
+    person.sayName = function () {
+        alert(this.name);
+    };
+    return temp;
+}
+3，构造函数
+
+4，构造函数+原型
+
+
+单例模式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
