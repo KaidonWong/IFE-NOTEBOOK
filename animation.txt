@@ -17,3 +17,23 @@ transform-style: preserve-3d;
 
 动画结束后，让动画停留在最后一帧
 animation-fill-mode: forwards
+
+
+transition: all 3.0s cubic-bezier(0.94, 0.06, 0.05, 0.95)  =》ease-in-out
+
+图片的颜色动效，前面加一个遮罩蒙版，opacity调节
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

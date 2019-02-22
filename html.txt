@@ -286,6 +286,16 @@ background-image: url();
 background-size:100% 100%;
 }
 
+引入video，video的container可设置为overflow:hidden, 然后让video.width=100% 
+因为video的宽度高度比例固定，难控
+
+video的z-index 设置为-1 才有作用？ 和leaflet的地图好像；
+
+
+这样才可以。。。
+background-position: -100px 0px  注意负值
+
+background-position: 10% 0%
 
 
 
