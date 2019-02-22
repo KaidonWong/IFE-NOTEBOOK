@@ -1,0 +1,325 @@
+.a.b{
+同时要有两个类
+}
+
+.a .b{
+a 下面的子类b  中间有间隔也可以，不是直接子类也可以
+}
+
+.a>.b {
+	必须是直属子类
+}
+
+.a~.b {
+  b在a的后面，兄弟节点
+}
+
+.a+.b {
+  b紧跟在a的后面，兄弟节点
+}
+
+
+连接还可以这样用
+    <a name="a" href="#c">to C</a>
+    <div id="a">a</div>
+    <a name="b" href="#c">to C</a>
+    <div id="b">b</div>
+    <a name="c" href="#c">to C</a>
+    <div id="c">c</div>
+
+网页中的网页
+<frameset cols="25%,75%">
+   <frame src="frame_a.htm">
+   <frame src="frame_b.htm">
+</frameset>
+
+内联框架，OA系统是不是可以这样设计呢？
+<iframe src="demo_iframe.htm" name="iframe_a"></iframe>
+<p><a href="http://www.w3school.com.cn" target="iframe_a">W3School.com.cn</a></p>
+
+默认地址，默认目标
+<head>
+<base href="http://www.w3school.com.cn/images/" />
+<base target="_blank" />
+</head>
+
+
+字体控制
+html {
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+p {
+  font-size: 1.4rem;
+  color: red;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+属性选择器
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+}
+
+/* 所有具有"data-vegetable"属性且属性值包含"spicy"的元素，
+即使元素的属性中还包含其他属性值，都会被应用红色的文本颜色 */
+
+[data-vegetable~="spicy"] {
+  color: red;
+}
+
+伪类： 一个冒号
+:hover
+
+:checked
+
+:first-child
+
+:focus
+
+三的倍数
+li:nth-of-type(3n) {
+  background-color: #ccc;
+}
+
+伪元素：两个冒号
+::after
+其实还在该元素范围内部，相当于最后一个子节点；
+
+::before
+::first-letter
+::first-line
+::selection
+::backdrop
+
+首行缩进
+text-indent  
+
+如果您希望背景色从元素中的文本向外少有延伸，只需增加一些内边距：
+p {background-color: gray; padding: 20px;}
+
+
+背景图片不断重复填充
+background-image: url(/i/eg_bg_03.gif);
+background-repeat: repeat
+
+URL第一个要有/      ！！！！！！！！！！！！！！！！！！！！！！！！！
+background-image: url(/img/1.jpg);
+
+列表前面编程图片
+ul 
+{
+list-style-image: url(eg_arrow.gif)
+}
+
+
+  list-style-type: square;
+  list-style-image: url(example.png);
+  list-style-position: inside;  //outside
+
+
+url() 函数中的路径不加引号
+background: url(bg.png);
+
+
+盒模型
+height width 设置的是padding里的高度
+
+外边距有一个特别的行为被称作外边距塌陷（margin collapsing）：当两个框彼此接触时，它们的间距将取两个相邻外边界的最大值，而非两者的总和
+
+
+
+无论垂直还是水平，百分比值始终参考宽度
+  margin: 2%;
+  padding: 2%;
+
+?? 对于position的top, 
+top: 50%, 偏移父元素高度的50%
+
+
+block
+
+inline  与文字完全融入一体，宽高，margin等已经无法设置
+ 
+inline block  和block没啥区别，除了可以和文字在一行；
+
+居中的常见用法
+  width: 70%;
+  max-width: 1280px;
+  min-width: 480px;
+  margin: 0 auto;
+
+图片居中的好例子，不会overflow
+img {
+  /* Second bit of CSS from the article */
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+闭合浮动的两种方法：
+其一，通过在浮动元素的末尾添加一个空元素，设置 clear：both属性，after伪元s素其实也是通过 content 在元素的后面生成了内容为一个点的块级元素；
+注意：必须要在父元素的最后一个子节点中加，::after
+
+#wrapper::after {
+    content: "";
+    clear: both;
+    display: block;  //必须要加上
+}
+
+其二，通过设置父元素 overflow 或者display：table 属性来闭合浮动；
+
+margin: 5% 意思是所在元素的父级总宽度的5%  实例：margin%.html
+
+CSS属性顺序规范：
+
+Formatting Model 相关属性包括：position / top / right / bottom / left / float / display / overflow 等
+Box Model 相关属性包括：border / margin / padding / width / height 等
+Typographic 相关属性包括：font / line-height / text-align / word-wrap 等
+Visual 相关属性包括：background / color / transition / list-style 等
+
+内联元素
+span  img  strong
+
+p可以设置line-height: 3, 设置的大一点的话，就可以让p高一点；
+
+/***********************************************************
+for(var item in arr|obj){} 可以用于遍历数组和对象
+
+遍历数组时，item表示索引值， arr表示当前索引值对应的元素 arr[item]
+遍历对象时，item表示key值，arr表示key值对应的value值 obj[item]
+
+问题时刻：
+var tabs = document.querySelectorAll('ul li p');
+得到的是NODELIST对象，含有length 键值对，所以遍历出了问题；
+
+label标签常用于与checkbox或radio关联，以实现点击文字也能选中/取消checkbox或radio
+
+通用兄弟选择器
+A ~ B	匹配B元素，满足条件：B是A之后的兄弟节点中的任意一个（AB有相同的父节点，B在A之后，但不一定是紧挨着A） 
+相邻兄弟选择器：
+A + B
+/* Toggled State */
+input[type=checkbox]:checked ~ div {
+   background: red;
+}
+
+z-index属性适用于定位元素（position属性值为 relative 或 absolute 或 fixed的对象）
+
+小技巧： checkbox hack
+https://css-tricks.com/the-checkbox-hack/
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+float:
+1, 父元素坍塌性
+2，包裹性
+
+
+让元素水平居中:
+1,父元素设置text-align: center   子元素设置为 inline-block
+
+垂直居中：
+1，设置line-height来控制高度
+
+2，父元素的设置　　　　display: table-cell; vertical-align: middle;
+
+3，若子元素是图像，可不使用table-cell
+
+
+margin-bottom: -1px 覆盖父元素的边界等
+
+
+
+图片在block中垂直居中，
+    display: flex;
+    align-items: center;  //纵轴
+    justify-content: center; //横轴
+
+
+
+
+对于block，想要它垂直居中有一个办法，position: relative; top: 50%       
+
+calc(50% - 100px)这个表达式要空格
+
+圣杯布局与双飞翼布局最大的区别：
+圣杯布局设置了padding，需要相对位移； 还有那个right 的负边距，有疑问
+
+通常大家在制作网页的过程中会遇到很多棘手的问题，比如我在写一个页面的时候，
+遇到了div嵌套引起的margin-top不起作用，对内部的div设置margin-top时，
+内部对于外部的div并没有产生一个margin值，
+而是外部的div相对于上面的div产生了一个margin值，为什么会出现这种情况？？
+
+答： https://www.cnblogs.com/huixinyudeboke/p/5043500.html
+用BFC解决！！！
+
+position：relative 为父 
+position:  absolute 为子  ，top left的偏移以border为准，不是padding
+
+flex 和 absolute position 冲突吗？
+http://www.it1352.com/766293.html
+这是因为absolute脱离了文档流，flex的宽度不明朗了，所以把flex的宽度固定一下就好了；
+
+巧用负margin覆盖元素；
+
+chrome 隐藏滚动条，但仍可以滚动：
+.content::-webkit-scrollbar {display:none}
+
+不要滚动条，也不需要滚动
+overflow:hidden
+
+
+如何让背景图片拉伸 全屏显示在浏览器内
+来一个div, 长宽有window的innerWidth来定义；
+然后
+div {
+background-image: url();
+background-size:100% 100%;
+}
+
+引入video，video的container可设置为overflow:hidden, 然后让video.width=100% 
+因为video的宽度高度比例固定，难控
+
+video的z-index 设置为-1 才有作用？ 和leaflet的地图好像；
+
+
+这样才可以。。。
+background-position: -100px 0px  注意负值
+
+background-position: 10% 0%
+
+
+有时候需要增加个遮罩层，遮罩层隐藏的时候，需要设置visibility:none， 否则鼠标无法选中下层元素
+
+
+a 标签去掉默认样式
+text-decoration:none
+out-line: none
+
+input 标签去掉默认样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

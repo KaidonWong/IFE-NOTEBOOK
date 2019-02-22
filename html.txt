@@ -298,10 +298,16 @@ background-position: -100px 0px  注意负值
 background-position: 10% 0%
 
 
+有时候需要增加个遮罩层，遮罩层隐藏的时候，需要设置visibility:none， 否则鼠标无法选中下层元素
 
 
+a 标签去掉默认样式
+text-decoration:none
+out-line: none
 
-
+input 标签去掉默认样式
+border: none;
+outline: none;
 
 
 
