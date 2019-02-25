@@ -129,8 +129,6 @@ var array = Array.from(items);
 数组去重
 Arr = [...new Set(Arr)];
 
-数组.splice(操作起始点,删除数量,替换的元素内容...)
-
 
 
 
