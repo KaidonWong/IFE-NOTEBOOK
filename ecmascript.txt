@@ -133,4 +133,5 @@ Arr = [...new Set(Arr)];
 
 
 
-
+ES6模块的import和export用法总结
+ES6之前已经出现了js模块加载的方案，最主要的是CommonJS和AMD规范。
