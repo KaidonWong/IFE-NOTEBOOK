@@ -104,8 +104,8 @@ var o3 = { c: 3 };
  
 var obj = Object.assign(o1, o2, o3);
 
-第一个参数对象会被改变，所以一般这样：
-var copyObj = Object.assign({}, obj);
+
+
 
 
 

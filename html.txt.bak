@@ -306,9 +306,16 @@ text-decoration:none
 out-line: none
 
 input 标签去掉默认样式
+border: none;
+outline: none;
 
 
 
+可以使用border绘制一个三角形
+
+
+display:none或visibility:hidden
+visibility虽然隐藏了，但仍然占用了布局
 
 
 
