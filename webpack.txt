@@ -49,3 +49,10 @@ const config = {
 
 这个插件兼容有问题，安装如下
 npm install extract-text-webpack-plugin@next --save-dev
+上面的被淘汰了，用mini-css-extract-plugin
+
+
+html-webpack-plugin生成的html文件放在dist根目录上，放在子目录上，html附属资源加载会有问题
+filename: 'html/1.html'  //错误
+filename: '1.html'   //正确
+
