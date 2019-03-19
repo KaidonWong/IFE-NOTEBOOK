@@ -56,3 +56,6 @@ html-webpack-pluginÉú³ÉµÄhtmlÎÄ¼ş·ÅÔÚdist¸ùÄ¿Â¼ÉÏ£¬·ÅÔÚ×ÓÄ¿Â¼ÉÏ£¬html¸½Êô×ÊÔ´¼ÓÔ
 filename: 'html/1.html'  //´íÎó
 filename: '1.html'   //ÕıÈ·
 
+
+
+
