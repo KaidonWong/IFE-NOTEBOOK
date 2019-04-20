@@ -49,3 +49,13 @@ const config = {
 
 这个插件兼容有问题，安装如下
 npm install extract-text-webpack-plugin@next --save-dev
+
+
+如下的功能使用后出错
+    // optimization: {
+    //     splitChunks: {
+    //         // include all types of chunks
+    //         chunks: 'all'
+    //     }
+    // }
+

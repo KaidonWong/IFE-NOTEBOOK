@@ -45,3 +45,7 @@ const config = {
   }
   // 会写入到硬盘：./dist/app.js, ./dist/search.js
 }
+
+
+这个插件兼容有问题，安装如下
+npm install extract-text-webpack-plugin@next --save-dev
