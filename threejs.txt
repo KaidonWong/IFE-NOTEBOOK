@@ -1,0 +1,3 @@
+we need three things:
+scene, camera and renderer, 
+

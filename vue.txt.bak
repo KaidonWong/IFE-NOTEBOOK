@@ -42,4 +42,17 @@ prop是单向数据流，父组件的值修改会影响到子组件的值，一般用子组件
 的$emit(参数、$event)来实现子组件向父组件的沟通；
 
 
-html-webpack-plugin生成的html文件放在dist根目录上，
+html-webpack-plugin生成的html文件放在dist根目录上，放在子目录上，html附属资源加载会有问题
+filename: 'html/1.html'  //错误
+filename: '1.html'   //正确
+
+
+//在组件里，data必须是一个函数
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
