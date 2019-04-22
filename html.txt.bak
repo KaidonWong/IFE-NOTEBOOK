@@ -137,8 +137,14 @@ height width 设置的是padding里的高度
   margin: 2%;
   padding: 2%;
 
+<<<<<<< HEAD
 
 ?? 对于position的top, 
+=======
+注意区别：
+
+ 对于position的top, 
+>>>>>>> 4dc39a81c175d5e6a4e537c4dcc907584b4c8aa9
 top: 50%, 偏移父元素高度的50%
 
 
@@ -318,6 +324,10 @@ outline: none;
 
 display:none或visibility:hidden
 visibility虽然隐藏了，但仍然占用了布局
+
+background: url(../asset/aboutus/zz6.jpg) 0/100% 100% no-repeat;
+
+position / background-size
 
 
 
