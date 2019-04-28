@@ -137,7 +137,9 @@ height width 设置的是padding里的高度
   margin: 2%;
   padding: 2%;
 
-?? 对于position的top, 
+注意区别：
+
+ 对于position的top, 
 top: 50%, 偏移父元素高度的50%
 
 
