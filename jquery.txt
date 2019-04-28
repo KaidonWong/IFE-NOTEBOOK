@@ -1,0 +1,18 @@
+    事件代理：   
+    
+    $('.certificate').on('click','.paper',function(e){
+        let a = $(this);
+        console.log($(this));
+    });
+	
+	注意不能使用箭头函数！
+
+click事件，使用delegateTarget， 不要使用target
+
+event.delegateTarget
+The element where the currently-called jQuery event handler was attached.
+
+event.target
+The DOM element that initiated the event.
+
+
