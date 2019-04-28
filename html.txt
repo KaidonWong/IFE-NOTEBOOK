@@ -318,17 +318,18 @@ outline: none;
 
 
 display:none或visibility:hidden
-visibility虽然隐藏了，但仍然占用了布局
+visibility虽然隐藏了，但仍然占用了布局,但是点不到
 
 background: url(../asset/aboutus/zz6.jpg) 0/100% 100% no-repeat;
 
 position / background-size
 
+/******************************************************/
 
+position: absolute的元素在父元素overflow: hidden下默认是超出不隐藏的，
+需要隐藏的时候，父元素需要添加position属性（不包括static)。
 
-
-
-
+/******************************************************/
 
 
 
