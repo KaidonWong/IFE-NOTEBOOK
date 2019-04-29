@@ -320,6 +320,13 @@ outline: none;
 display:none或visibility:hidden
 visibility虽然隐藏了，但仍然占用了布局,但是点不到
 
+
+table 有个重要的属性，cellspacing,一般设置为0，否则对宽度有影响；
+<table cellspacing='0'>
+
+
+
+
 background: url(../asset/aboutus/zz6.jpg) 0/100% 100% no-repeat;
 
 position / background-size
