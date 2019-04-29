@@ -1,5 +1,3 @@
-对于inline 元素，transition 失效；
-
 3D动效中，容器一定要设置
 transform-style: preserve-3d;
 
