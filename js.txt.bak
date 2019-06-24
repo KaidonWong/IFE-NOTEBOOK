@@ -108,10 +108,6 @@ var obj = Object.assign(o1, o2, o3);
 var copyObj = Object.assign({}, obj);
 
 
-addEventListener("touchstart",callback,false);
-第三个参数，false：冒泡时期执行callback
-true: 捕获时期执行callback
-
 
 
 
