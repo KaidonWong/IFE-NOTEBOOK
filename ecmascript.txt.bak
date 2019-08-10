@@ -1,6 +1,5 @@
 ¶Ñ ºÍ Õ»
 
-
 Ô­Ê¼ÀàÐÍ:
 undefined
 boolean
@@ -9,8 +8,11 @@ number
 objectµÄÒýÓÃ(null»òÕßÒýÓÃ)¡£
 Ô­Ê¼ÀàÐÍÕ¼¾ÝµÄ¿Õ¼äÊÇ¹Ì¶¨µÄ£¬´æ·ÅÔÚÕ»ÖÐ£¬
 ÔÚÐí¶àÓïÑÔÖÐ£¬×Ö·û´®¶¼±»¿´×÷ÒýÓÃÀàÐÍ£¬¶ø·ÇÔ­Ê¼ÀàÐÍ£¬ÒòÎª×Ö·û´®µÄ³¤¶ÈÊÇ¿É±äµÄ¡£ECMAScript´òÆÆÁËÕâÒ»´«Í³¡£
+
+
 /--------------------------------------------------/
 ¶Ô±äÁ¿»òÖµµ÷ÓÃtypeofÔËËã·û½«·µ»ØÏÂÁÐÖµÖ®Ò»£º£¨¶¼ÊÇ·µ»Ø×Ö·û´®£©  typeof sTemp
+
 undefined
 boolean
 string
@@ -18,6 +20,7 @@ number
 object  //¶ÔÏóµÄÒýÓÃ»òÕßnull
 (function)  ÌØÊâµÄobject
 /--------------------------------------------------/
+
 var oTemp;
 alert(oTemp == undefined);  //Êä³ö true
 
@@ -27,7 +30,35 @@ alert(typeof oTemp); //Êä³ö×Ö·û´® "undefined"
 //×¢ÒâµÄÒ»µã
 alert(null == undefined);  //Êä³ö "true"
 
+ == ºÍ ===µÄÇø±ð£¬ÀàÐÍ×ª»»
+
 /--------------------------------------------------/
+
+function Car(color) {
+    this.color = color;
+}
+Car.prototype.showColor = function(){alert(this.color)}
+
+var car = new Car("blue");
+
+
+
+¹¹Ôìº¯Êý Car()  ------prototype-------> Ô­ÐÍ¶ÔÏó -----__proto__------> Ô­ÐÍ¶ÔÏó
+                <------constructor----
+|					  /\
+|					  |
+new					  |
+|					  |
+|					  |
+\/					  |
+					  |
+ÊµÀý car ------__proto__------------------
+
+
+instanceofÊÇÅÐ¶ÏÊµÀý¶ÔÏóµÄ__proto__ºÍÉú³É¸ÃÊµÀýµÄ¹¹Ôìº¯ÊýµÄprototypeÊÇ²»ÊÇÒýÓÃµÄÍ¬Ò»¸öµØÖ·¡£
+
+/--------------------------------------------------/
+
 String (Ô­Ê¼ÀàÐÍ)
 ÊôÐÔ£º
 length
@@ -35,29 +66,31 @@ length
 ·½·¨£º
 str.charAt(2) ·µ»ØÔÚÖ¸¶¨Î»ÖÃµÄ×Ö·û¡£
 
-var n = str1.concat(str2);  Á¬½ÓÁ½¸ö×Ö·û´®
+var n = str1.concat(str2);  Á¬½ÓÁ½¸ö×Ö·û´®   ±¾Éí²»ÐÞ¸Ä   //Êý×éÒ²ÓÐÏàÍ¬µÄ·½·¨
 
-var n=str.indexOf("welcome");  Ã»ÓÐ³öÏÖÔò·µ»Ø-1
+var n=str.indexOf("welcome");  Ã»ÓÐ³öÏÖÔò·µ»Ø-1    //Êý×éÒ²ÓÐÏàÍ¬µÄ·½·¨
 lastIndexOf() ´ÓºóÏòÇ°
 
 var n=str.replace("Microsoft","W3CSchool");  ×ÔÉí²»±ä
 
 let a = "abcdefg";
 console.log(a.substring(1,3));  bc
-console.log(a.slice(1,3));    bc
+console.log(a.slice(1,3));    bc     //Êý×éÒ²ÓÐÏàËÆµÄ·½·¨
 
-split()
-'a,b;; c  d'.split(/[\s\,\;]+/); // ['a', 'b', 'c', 'd']
+split()    //split('')  ×Ö·û´®È«·Ö½â
+'a,b;; c  d'.split(/[\s\,\;]+/); // ['a', 'b', 'c', 'd']   \s ÊÇÖ¸·Ç×Ö·ûÀàµÄ×Ö·û´®
 
 match()      ²ÎÊýÎª×Ö·û´®»òÕýÔò±í´ïÊ½   ·µ»ØÎªÊý×é
 let a = "is a is a";
 let arr = a.match(/is/g);   ·µ»ØÎª³¤¶ÈÎª2µÄÊý×é["is","is"]
 
 /--------------------------------------------------/
+
 ÕýÔò±í´ïÊ½
 
 test("lalalal")  //·µ»Øtrue false
 exec("lalalal")  //·µ»ØÊý×é£¬Êý×é³¤¶ÈËÆºõÓÀÔ¶Îª1£¬ÎÞÂÛ/g 
+
 
 String Ö§³ÖÕýÔò±í´ïÊ½µÄ·½·¨£º
 
@@ -66,9 +99,8 @@ match();
 replace();
 split();
 
-
-
 /--------------------------------------------------/
+
 Array  (Ò»¸ö¶ÔÏó)
 
 ret= arr1.concat(arr2);   ×ÔÉí²»±ä
@@ -76,22 +108,30 @@ indexOf / lastIndexOf
 join(",")   ×ª×Ö·û´®  (ÓëStringµÄsplit ºôÓ¦)
 slice
 
-map(function(val) {      //¸Ä±äÊý×éÀïµÄÃ¿Ò»¸öÖµ
-	return map* map;
+map(function(val) {      //¸Ä±äÊý×éÀïµÄÃ¿Ò»¸öÖµ  //Ô­Êý×é²»±ä
+	return val * 3;
 })
 
-filter
+filter    //true °üº¬ÔÚÊý×éÀï£¬falseÅÅ³ýÔÚÊý×éÍâ
 
 some(function(val) {         //Ò»¸öÔªËØ·µ»Øtrue£¬some¾Í·µ»Øtrue
 	return val > 18;
 })   
 
-<------
-sort  //ÅÅÐò
+<------          
+
+sort  //ÅÅÐò                          ²»»áÉú³É¸±±¾£¡ Ô­Êý×é¸Ä±ä
 var points = [40,100,1,5,25,10];
 points.sort(function(a,b){return a-b});
 Êä³ö½á¹û£º
-1,5,10,25,40,100
+1,5,10,25,40,100   //´ÓÐ¡µ½´ó
+
+
+Õâ¸ö·½·¨µÄÅÅÐòÊÇ¿´»Øµ÷º¯ÊýµÄ·µ»ØÖµ£º
+
+ Èç¹û·µ»ØÖµ´óÓÚ 0£¬ÔòÎ»ÖÃ»¥»»¡£
+ Èç¹û·µ»ØÖµÐ¡ÓÚ 0£¬ÔòÎ»ÖÃ²»±ä¡£
+
 ------>
 
 push / pop   Êý×éÄ©Î²×ö²Ù×÷
@@ -100,7 +140,24 @@ unshift  / shift   Êý×é¿ªÍ·×ö²Ù×÷
 
 reverse  µßµ¹
 
-splice  //vueÖÐºÜÖØÒªµÄ²Ù×÷·½·¨£¬¿ÉÒÔÐÞ¸ÄÊý×é±¾Éí
+splice  //vueÖÐºÜÖØÒªµÄ²Ù×÷·½·¨£¬¿ÉÒÔÐÞ¸ÄÊý×é±¾Éí      //·µ»ØµÄÊÇ±»É¾³ýµôµÄÔªËØ£¡£¡
+
+------
+
+±äÒì·½·¨
+push()
+pop()
+
+unshift()
+shift()
+
+splice()
+sort()   £¡£¡£¡£¡£¡£¡£¡£¡£¡¸Ä±äÔ­Ê¼Êý×é
+reverse()
+
+------
+·Ç±äÒì·½·¨
+filter  concat   map  slice
 
 ------
 let arr = Array.from(original);
@@ -132,27 +189,23 @@ forEach
 Number (Ô­Ê¼ÀàÐÍ)
 
 //Êý×Ö×ª×Ö·û´®µÄ¼¸ÖÖ·½·¨ 
-1£¬toString()   
+1£¬toString(x)   //²ÎÊýÎª½øÖÆ£¬²»ÌîÔòÎª10½øÖÆ 
+
+// toString ·µ»Ø¸÷ÖÖ½øÖÆµÄ×Ö·û´®
+var myNumber=128;
+myNumber.toString(16);   // returns 80 
+myNumber.toString(8);    // returns 200
+myNumber.toString(2);    // returns 10000000
 
 2£¬toFixed(2)   //Ð¡ÊýµãºóÁ½Î»
 
-3£¬toPrecision(x)    //¾«¶ÈÎ»ÊýÎªX£¬ÓÃ0²¹Æë     
+3£¬toPrecision(x)    //¾«¶ÈÎ»ÊýÎªX£¬ÓÃ0²¹Æë
 
 4£¬toExponential(x)   //Ö¸Êý¼ÆÊý·¨  xÎªÐ¡ÊýÎ»Êý
 
-// ES6µÄÐ´·¨  ×Ö·û´®×ªÊý×é
+//×Ö·û´®×ªÊý×é     ES6µÄÐ´·¨
 Number.parseInt('12.34') // 12
 Number.parseFloat('123.45#') // 123.45
-
-// toString ·µ»Ø¸÷ÖÖ½øÖÆµÄ×Ö·û´®
-var myNumber=128; 
-myNumber.toString(16);   // returns 80 
-myNumber.toString(8);    // returns 200 
-myNumber.toString(2);    // returns 10000000 
-
-
-
-
 
 /--------------------------------------------------/
 
@@ -188,19 +241,31 @@ function doAdd() {
 doAdd(10);	//Êä³ö "15"
 doAdd(40, 20);	//Êä³ö "60"
 /--------------------------------------------------/
-±Õ°ü£ºº¯Êý¿ÉÒÔÊ¹ÓÃº¯ÊýÖ®Íâ¶¨ÒåµÄ±äÁ¿
+±Õ°ü£º
+µ±Ò»¸öÄÚ²¿º¯Êý±»ÆäÍâ²¿º¯ÊýÖ®ÍâµÄ±äÁ¿ÒýÓÃÊ±£¬¾ÍÐÎ³ÉÁËÒ»¸ö±Õ°ü
+function A() {
+    var count = 0;
+    function B() {
+       count ++;
+       console.log(count);
+    }
+    return B;
+}
+var C = A();
+C();// 1
+C();// 2
+C();// 3
+
+×¢Òâ£º countËÆºõ±ä³ÉÁËÈ«¾Ö±äÁ¿
 
 /--------------------------------------------------/
-
-instanceofÊÇÅÐ¶ÏÊµÀý¶ÔÏóµÄ__proto__ºÍÉú³É¸ÃÊµÀýµÄ¹¹Ôìº¯ÊýµÄprototypeÊÇ²»ÊÇÒýÓÃµÄÍ¬Ò»¸öµØÖ·¡£
-/--------------------------------------------------/
-
 
 
 
 ÔÚÊ¹ÓÃtypeofÔËËã·ûÊ±²ÉÓÃÒýÓÃÀàÐÍ´æ´¢Öµ»á³öÏÖÒ»¸öÎÊÌâ£¬ÎÞÂÛÒýÓÃµÄÊÇÊ²Ã´ÀàÐÍµÄ¶ÔÏó£¬Ëü¶¼·µ»Ø"object"¡£
 ECMAScriptÒýÈëÁËÁíÒ»¸öJavaÔËËã·ûinstanceofÀ´½â¾öÕâ¸öÎÊÌâ¡£
 student1 instanceof Student    //true false
+/--------------------------------------------------/
 
 °Ñ¶ÔÏóµÄËùÓÐÒýÓÃ¶¼ÉèÖÃÎª null£¬¿ÉÒÔÇ¿ÖÆÐÔµØ·Ï³ý¶ÔÏó
 
@@ -224,8 +289,6 @@ Car.prototype.showColor = function() {
 
 var oCar1 = new Car("red",4,23);
 /--------------------------------------------------/
-
-
 ²»ÒªÕâÑù¼Ó£º
 var str = "hello ";
 str += "world";
@@ -234,8 +297,8 @@ str += "world";
 var arr = new Array();
 arr[0] = "hello ";
 arr[1] = "world";
-var str = arr.join("");
-
+var str = arr.join("");  //concat
+/--------------------------------------------------/
 ±ÜÃâÔÚ¿é¼¶×÷ÓÃÓòÄÚÉùÃ÷º¯Êý¡£Èç¹ûÈ·ÊµÐèÒª£¬Ò²Ó¦¸ÃÐ´³Éº¯Êý±í´ïÊ½£¬¶ø²»ÊÇº¯ÊýÉùÃ÷Óï¾ä
 // º¯ÊýÉùÃ÷Óï¾ä
 {
@@ -252,7 +315,7 @@ var str = arr.join("");
     return a;
   };
 }
-
+/--------------------------------------------------/
 ¶ÔÓÚconstÀ´Ëµ£¬Ö»ÉùÃ÷²»¸³Öµ£¬¾Í»á±¨´í
 const a;  //±¨´í
 /--------------------------------------------------/
@@ -309,6 +372,7 @@ function clone(origin) {
   return Object.assign({}, origin);
 }
 
+//¶ÔÏóµÄ±éÀú
 var obj = { foo: "bar", baz: 42 };
 Object.keys(obj)
 // ["foo", "baz"]
@@ -328,7 +392,7 @@ push(myArr,1,2,3)
 1£¬ºÏ²¢Êý×é
 [...arr1, ...arr2, ...arr3]
 
-2£¬ÈÎºÎIterator½Ó¿ÚµÄ¶ÔÏó£¬¶¼¿ÉÒÔÓÃÀ©Õ¹ÔËËã·û×ªÎªÕæÕýµÄÊý×é¡£
+2£¬ÈÎºÎIterator½Ó¿ÚµÄ¶ÔÏó£¬¶¼¿ÉÒÔÓÃÀ©Õ¹ÔËËã·û×ªÎªÕæÕýµÄÊý×é¡£  //µÈÍ¬ÓÚArray.from
 var nodeList = document.querySelectorAll('div');
 var array = [...nodeList];
 
@@ -345,11 +409,7 @@ var array = [...nodeList];
 // ¼ýÍ·º¯ÊýÐ´·¨
 [1,2,3].map(x => x * x);
 
-
 ------
-
-
-
 
 ¼ýÍ·º¯Êý£º
 var sum = (num1, num2) => num1 + num2;
@@ -358,6 +418,7 @@ var sum = (num1, num2) => { return num1 + num2; }
 var sum = function(num1, num2) {
   return num1 + num2;
 };
+¼Ì³Ð»·¾³ÖÐµÄthisÖ¸Õë
 /----------------------ËÄÖÖÊý¾Ý¼¯ºÏ array object set map ----------------------------/
 Set
 SET³ÉÔ±µÄÖµ¶¼ÊÇÎ¨Ò»µÄ£¬Ã»ÓÐÖØ¸´µÄÖµ
@@ -380,10 +441,10 @@ WeakSet °üº¬µÄÊÇ¶ÔÏóµÄÈõÒýÓÃ£¬À¬»ø»ØÊÕ»úÖÆ»áºöÂÔËü£»
 /--------------------------------------------------/
 Map
 ´«Í³¶ÔÏóÊÇ¡°×Ö·û´®-Öµ¡±µÄ¼üÖµ¶Ô
-MapÊÇ¡°Öµ(ÄÚ´æµØÖ·)-Öµ¡±µÄ¼üÖµ¶Ô
+MapÊÇ¡°Öµ(ÄÚ´æµØÖ·)-Öµ¡±µÄ¼üÖµ¶Ô  //¼üÏÞÖÆÓÚ×Ö·û´®
 
 ÊôÐÔ: size
-·½·¨£ºset(key,val)  get(key)  has(key) delete(key)   clear()
+·½·¨£ºset(key,val)  get(key)  has(key)  delete(key)   clear()
 
 //±éÀú·½·¨
 for (let [key, value] of map.entries()) {
@@ -408,21 +469,6 @@ const map = new Map(Object.entries(obj));
 
 
 /********************************************************************/
-
-/--------------------------------------------------/
-±Õ°ü
-function A(){
-    function B(){
-       console.log('Hello Closure!');
-    }
-    return B;
-}
-var C = A();
-C();// Hello Closure!
-
-µ±Ò»¸öÄÚ²¿º¯Êý(B)±»ÆäÍâ²¿º¯Êý(A)Ö®ÍâµÄ±äÁ¿(C)ÒýÓÃÊ±£¬¾ÍÊÇ±Õ°ü
-
-ÄÚ²¿º¯Êý±»±£´æµ½ÁËÍâ²¿£¬¼´Îª±Õ°ü
 
 
 
@@ -451,7 +497,8 @@ Object.keys·µ»ØÒ»¸öÊý×é£¬°üÀ¨¶ÔÏó×ÔÉíµÄ£¨²»º¬¼Ì³ÐµÄ£©ËùÓÐ¿ÉÃ¶¾ÙÊôÐÔ£¨²»º¬SymbolÊ
 
 /--------------------------------------------------/
 
-ÓÉÓÚES6ÊäÈëµÄÄ£¿é±äÁ¿£¬Ö»ÊÇÒ»¸ö¡°·ûºÅÁ¬½Ó¡±£¬ËùÒÔÕâ¸ö±äÁ¿ÊÇÖ»¶ÁµÄ£¬¶ÔËü½øÐÐÖØÐÂ¸³Öµ»á±¨´í
+ÓÉÓÚES6ÊäÈëµÄÄ£¿é±äÁ¿£¬Ö»ÊÇÒ»¸ö¡°·ûºÅÁ¬½Ó¡±£¬ËùÒÔÕâ¸ö±äÁ¿ÊÇÖ»¶ÁµÄ£¬¶ÔËü½øÐÐÖØÐÂ¸³Öµ»á±¨´í,
+×¢Òâ£º¶ÔÏóÄ£¿é±¾ÖÊÉÏ´«¹ýÀ´µÄÊÇÖ¸Õë£¬ËùÒÔ¶ÔÏóÄÚÈÝµÄÐÞ¸ÄÃ»ÓÐÎÊÌâ£»
 
 ------
 
@@ -462,7 +509,7 @@ setTimeout(() => foo = 'baz', 500);
 ÕâÒ»µãÓë CommonJS ¹æ·¶ÍêÈ«²»Í¬¡£CommonJS Ä£¿éÊä³öµÄÊÇÖµµÄ»º´æ£¬²»´æÔÚ¶¯Ì¬¸üÐÂ
 
 ------
-import µÄ±äÁ¿ÊÇÖ»¶ÁµÄ£¬¶ÔÏóÔò¿ÉÒÔÐÞ¸ÄÆäÊôÐÔ£»
+import µÄ±äÁ¿ÊÇÖ»¶ÁµÄ£¬¶ÔÏóÔò¿ÉÒÔÐÞ¸ÄÆäÊôÐÔ£¨ÒòÎª¶ÔÏóÊÇÖ¸Õë£©£»
 import {a} from './xxx.js'
 
 a.foo = 'hello'; // ºÏ·¨²Ù×÷
@@ -477,5 +524,14 @@ if (x === 1) {
 }
 ------
 Ê¹ÓÃÁËdefault£¬¾Í¿ÉÒÔ²»ÓÃ{}ÁË
+
+/--------------------------------------------------/
+
+Ä£°å×Ö·û´®
+`Hello ${name}, how are you ${time}?`
+/--------------------------------------------------/
+
+
+
 
 

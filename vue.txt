@@ -57,7 +57,8 @@ computed: {
 有时候，不想用vue的复用机制，添加一个key
 
 
-不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS 属性 display。
+不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。
+v-show 只是简单地切换元素的 CSS 属性 display。
 
 /************************************************************/
 
@@ -102,18 +103,64 @@ methods: {
 }
 
 /************************************************************/
+什么时候出现$event?  template里的事件 后面，他们就是DOM事件
+
+
+v-on:input="searchText = $event.target.value"
+v-on:click="warn('Form cannot be submitted yet.', $event)"
+
+对于父组件，是子组件传过来的值
+
+子组件:
+v-on:click="$emit('enlarge-text', 0.1)"
+父组件：
+v-on:enlarge-text="postFontSize += $event"
+
+/************************************************************/
+按键修饰符
+
+你可以直接将 KeyboardEvent.key 暴露的任意有效按键名转换为 kebab-case 来作为修饰符。
+
+<input v-on:keyup.page-down="onPageDown">
+<input v-on:keyup.enter="submit">
+
+/************************************************************/
+
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+
+.ctrl
+.alt
+.shift
+.meta
+
+<!-- Ctrl + Click -->
+<div @click.ctrl="doSomething">Do something</div>
+
+/************************************************************/
+
+子组件@click.stop   父组件的@click不再触发
+
+
+/************************************************************/
 组件命名
 
-我们强烈推荐遵循 W3C 规范中的自定义组件名 (字母全小写且必须包含一个连字符)。这会帮助你避免和当前以及未来的 HTML 元素相冲突。
+我们强烈推荐遵循 W3C 规范中的自定义组件名 (字母全小写且必须包含一个连字符)。
+这会帮助你避免和当前以及未来的 HTML 元素相冲突。
 
-HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。//所以prop的命名不要大小写，也不能用-
+HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。 attr
+//所以prop的命名不要大小写，只能用-
 
-不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或属性名，所以就没有理由使用 camelCase 或 PascalCase 了。
-并且 v-on 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 v-on:myEvent 将会变成 v-on:myevent——
+不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或属性名，
+所以就没有理由使用 camelCase 或 PascalCase 了。
+
+并且 v-on 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，
+所以 v-on:myEvent 将会变成 v-on:myevent
 导致 myEvent 不可能被监听到。
 
 因此，我们推荐你始终使用 kebab-case 的事件名
+
 /************************************************************/
+
 prop 可以定义类型
 
 props: {
@@ -185,10 +232,6 @@ v-for的优先级最高，所以可以从v-for获取到数组子元素，然后使用它们
 prop是单向数据流，父组件的值修改会影响到子组件的值，一般用子组件
 的$emit(事件名,$event)来实现子组件向父组件的沟通；
 
-
-html-webpack-plugin生成的html文件放在dist根目录上，放在子目录上，html附属资源加载会有问题
-filename: 'html/1.html'  //错误
-filename: '1.html'   //正确
 
 
 //在组件里，data必须是一个函数
@@ -317,8 +360,33 @@ model: {
 新的值的时候，这个 lovingVue 的属性将会被更新。
 
 /**************************************************/
+keep-alive  用于动态组件
+
+<!-- 失活的组件将会被缓存！-->
+<keep-alive>
+  <component v-bind:is="currentTabComponent"></component>
+</keep-alive>
 
 /**************************************************/
+VUEX
+
+对于getter
+通过属性访问（不需要传参数）
+getters: {
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done)
+    }
+}
+
+通过方法访问（需要传参数）
+getters: {
+  getTodoById: (state) => (id) => {
+    return state.todos.find(todo => todo.id === id)
+  }
+}
+一个是返回属性，一个是返回方法
+
+
 
 /**************************************************/
 

@@ -1,23 +1,7 @@
 对于inline 元素，transition 失效；
 
-3D动效中，容器一定要设置transform-style: preserve-3d;,因为容器会当作一个整体设置反转，就像AE中的塌陷collapse
-
-舞台则需要设置perspective，以及perspecitive-origin
-
-
-.stage {
-	perspective: 1000px;
-	.container {
-		transform-style: preserve-3d;
-		div {
-		}
-	
-	}
-
-}
-
-
-
+3D动效中，容器一定要设置
+transform-style: preserve-3d;
 
 页面翻转的效果，巧妙运用了backface-visibility
 
@@ -40,4 +24,18 @@ animation-fill-mode: forwards
 transition: all 3.0s cubic-bezier(0.94, 0.06, 0.05, 0.95)  =》ease-in-out
 
 图片的颜色动效，前面加一个遮罩蒙版，opacity调节
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

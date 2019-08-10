@@ -1,0 +1,2 @@
+IE：对于input, 设置lineheight,似乎不能把元素撑高
+

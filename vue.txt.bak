@@ -39,6 +39,9 @@ computed: {
     }
   }
 }
+-------
+用在组件上：
+当在一个自定义组件上使用 class 属性时，这些类将被添加到该组件的根元素上面。
 /***************************************************************/
 
 /************************************************************/
@@ -54,9 +57,35 @@ computed: {
 有时候，不想用vue的复用机制，添加一个key
 
 
-不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。v-show 只是简单地切换元素的 CSS 属性 display。
+不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。
+v-show 只是简单地切换元素的 CSS 属性 display。
 
 /************************************************************/
+
+数组的更新，不一定触发视图改变，需要变异的方法
+
+变异方法：
+push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse()
+
+如果是非变异方法
+filter  concat   map  slice
+可以用新数组替换旧数组
+
+
+由于 JavaScript 的限制，Vue 不能检测以下数组的变动：
+
+1 当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue
+2 当你修改数组的长度时，例如：vm.items.length = newLength
+
+为了解决第二类问题，你可以使用 splice：
+
+vm.items.splice(newLength)
 
 /************************************************************/
 有时也需要在内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 $event 把它传入方法：
@@ -78,13 +107,38 @@ methods: {
 
 我们强烈推荐遵循 W3C 规范中的自定义组件名 (字母全小写且必须包含一个连字符)。这会帮助你避免和当前以及未来的 HTML 元素相冲突。
 
-HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。
+HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。//所以prop的命名不要大小写，也不能用-
 
 不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或属性名，所以就没有理由使用 camelCase 或 PascalCase 了。
 并且 v-on 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 v-on:myEvent 将会变成 v-on:myevent——
 导致 myEvent 不可能被监听到。
 
 因此，我们推荐你始终使用 kebab-case 的事件名
+/************************************************************/
+prop 可以定义类型
+
+props: {
+  title: String,
+  likes: Number,
+  isPublished: Boolean,
+  commentIds: Array,
+  author: Object,
+  callback: Function,
+  contactsPromise: Promise // or any other constructor
+}
+
+那么怎样把 false 传递给 prop 呢？
+
+静态的传递prop
+<blog-post title="My journey with Vue"></blog-post>
+只能传送字符串
+
+动态的传递prop  //Array ,Boolean, Object 
+<blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
+将不再传递字符串，而是会解析成数组；
+
+
+
 /************************************************************/
 
 <input v-model="searchText">等价于  （v-model就是一个语法糖）
@@ -130,7 +184,7 @@ v-for的优先级最高，所以可以从v-for获取到数组子元素，然后使用它们
             </axis-label>
 
 prop是单向数据流，父组件的值修改会影响到子组件的值，一般用子组件
-的$emit(参数、$event)来实现子组件向父组件的沟通；
+的$emit(事件名,$event)来实现子组件向父组件的沟通；
 
 
 html-webpack-plugin生成的html文件放在dist根目录上，放在子目录上，html附属资源加载会有问题

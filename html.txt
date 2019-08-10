@@ -127,7 +127,7 @@ background: url(bg.png);
 
 
 盒模型
-height width 设置的是padding里的高度
+height width 设置的是padding里的高度  //box-sizing
 
 外边距有一个特别的行为被称作外边距塌陷（margin collapsing）：当两个框彼此接触时，它们的间距将取两个相邻外边界的最大值，而非两者的总和
 
@@ -142,12 +142,15 @@ height width 设置的是padding里的高度
  对于position的top, 
 top: 50%, 偏移父元素高度的50%
 
+对于height
+height: 50%, 父元素高度的50%，如果父元素没有定义高度，那这个也无效
+
 
 block
 
 inline  与文字完全融入一体，宽高，margin等已经无法设置
  
-inline block  和block没啥区别，除了可以和文字在一行；
+inline block  和block没啥区别，除了可以和文字在一行；	
 
 居中的常见用法
   width: 70%;
@@ -369,3 +372,88 @@ div {
 	}
 }
 /******************************************************/
+border-radius  可以画椭圆
+border-radius: 10px / 20px;
+
+
+
+
+/******************************************************/
+window.location
+
+hostname  +  port    =  host
+127.0.0.1   8000      127.0.0.1:8000
+
+host   +   pathname  +  search  + hash  = href
+
+/******************************************************/
+history.pushState(obj,"","?page=1");
+
+window.onpopstate= function(event){
+
+    event.state == obj!!!!!
+
+}
+
+/******************************************************/
+
+a 标签的title 可以做鼠标悬停tip 效果
+
+/******************************************************/
+
+SVG
+
+viewbox的使用见网页
+https://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/
+
+
+style 属性有
+
+fill:rgb(0,0,255);
+stroke-width:1;
+stroke:rgb(0,0,0);
+fill-opacity:0.1;
+stroke-opacity:0.9
+
+线条毛边的处理
+path{
+    shape-rendering: crispEdges;
+}
+
+
+/******************************************************/
+存储localStorage时，复杂的对象先转JSON
+
+JSON.stringify(this.cats);
+JSON.parse()
+
+/******************************************************/
+inline 元素不会触发点击事件
+
+/******************************************************/
+在做点击时的涟漪效果，需要获取点击位置相对某元素的偏移位置，
+
+	//通过vue的ref获取元素，然后后面的方法用来获取相对视图的位置
+            let a = this.$refs.root.getBoundingClientRect();
+
+            //点击事件的pageX 也是相对视图的
+            this.clickPosition = {
+                left: `${e.pageX - a.x}px`,
+                top: `${e.pageY - a.y}px`
+            };
+/******************************************************/
+点击事件 的位置属性
+screenX  相对屏幕
+
+pageX    相对视图
+
+layerX   相对offsetParent， offsetParent时第一个position!=static的父元素
+
+offsetX  相对触发事件的元素
+/******************************************************/
+DOM 元素的位置
+
+offsetX  相对offsetParent
+
+//相对视图的位置
+getBoundingClientRect()   

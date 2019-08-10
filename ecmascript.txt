@@ -8,6 +8,8 @@ number
 object的引用(null或者引用)。
 原始类型占据的空间是固定的，存放在栈中，
 在许多语言中，字符串都被看作引用类型，而非原始类型，因为字符串的长度是可变的。ECMAScript打破了这一传统。
+
+
 /--------------------------------------------------/
 对变量或值调用typeof运算符将返回下列值之一：（都是返回字符串）  typeof sTemp
 
@@ -18,6 +20,7 @@ number
 object  //对象的引用或者null
 (function)  特殊的object
 /--------------------------------------------------/
+
 var oTemp;
 alert(oTemp == undefined);  //输出 true
 
@@ -27,7 +30,68 @@ alert(typeof oTemp); //输出字符串 "undefined"
 //注意的一点
 alert(null == undefined);  //输出 "true"
 
+ == 和 ===的区别，类型转换
+
 /--------------------------------------------------/
+
+function Car(color) {
+    this.color = color;
+}
+Car.prototype.showColor = function(){alert(this.color)}
+
+var car = new Car("blue");
+
+
+
+构造函数 Car()  ------prototype-------> 原型对象 -----__proto__------> 原型对象
+                <------constructor----
+|					  /\
+|					  |
+new					  |
+|					  |
+|					  |
+\/					  |
+					  |
+实例 car ------__proto__------------------
+
+
+instanceof是判断实例对象的__proto__和生成该实例的构造函数的prototype是不是引用的同一个地址。
+
+/--------------------------------------------------/
+var person2 = Object.create(person1);
+
+
+create() 实际做的是从指定原型对象创建一个新的对象。这里以 person1 为原型对象创建了 person2 对象。在控制台输入：
+person2.__proto__
+结果返回对象person1
+
+/--------------------------------------------------/
+标准继承方法
+
+function Person(name) {
+	this.name = name;
+}
+Person.prototype.greet = function() {
+}
+
+function Teacher(name, age) {
+	Person.call(this,name);
+	this.age = age;
+}
+Teacher.prototype = Object.create(Person.prototype);
+Teacher.prototype.constructor = Teacher;
+
+
+Fn.call(this,A,B);
+
+Fn.apply(this,[A,B]);
+
+Fn.bind(this,A,B)();
+
+
+
+/--------------------------------------------------/
+
 String (原始类型)
 属性：
 length
@@ -54,10 +118,12 @@ let a = "is a is a";
 let arr = a.match(/is/g);   返回为长度为2的数组["is","is"]
 
 /--------------------------------------------------/
+
 正则表达式
 
 test("lalalal")  //返回true false
 exec("lalalal")  //返回数组，数组长度似乎永远为1，无论/g 
+
 
 String 支持正则表达式的方法：
 
@@ -65,7 +131,9 @@ search();
 match();
 replace();
 split();
+
 /--------------------------------------------------/
+
 Array  (一个对象)
 
 ret= arr1.concat(arr2);   自身不变
@@ -83,18 +151,20 @@ some(function(val) {         //一个元素返回true，some就返回true
 	return val > 18;
 })   
 
-<------           
+<------          
+
 sort  //排序                          不会生成副本！ 原数组改变
 var points = [40,100,1,5,25,10];
 points.sort(function(a,b){return a-b});
 输出结果：
-1,5,10,25,40,100
+1,5,10,25,40,100   //从小到大
 
 
 这个方法的排序是看回调函数的返回值：
 
  如果返回值大于 0，则位置互换。
  如果返回值小于 0，则位置不变。
+
 ------>
 
 push / pop   数组末尾做操作
@@ -106,14 +176,18 @@ reverse  颠倒
 splice  //vue中很重要的操作方法，可以修改数组本身      //返回的是被删除掉的元素！！
 
 ------
+
 变异方法
 push()
 pop()
-shift()
+
 unshift()
+shift()
+
 splice()
-sort()
+sort()   ！！！！！！！！！改变原始数组
 reverse()
+fill()
 
 ------
 非变异方法
@@ -149,27 +223,23 @@ forEach
 Number (原始类型)
 
 //数字转字符串的几种方法 
-1，toString()   //参数为进制
+1，toString(x)   //参数为进制，不填则为10进制 
+
+// toString 返回各种进制的字符串
+var myNumber=128;
+myNumber.toString(16);   // returns 80 
+myNumber.toString(8);    // returns 200
+myNumber.toString(2);    // returns 10000000
 
 2，toFixed(2)   //小数点后两位
 
-3，toPrecision(x)    //精度位数为X，用0补齐     
+3，toPrecision(x)    //精度位数为X，用0补齐
 
 4，toExponential(x)   //指数计数法  x为小数位数
 
-// ES6的写法  字符串转数组
+//字符串转数组     ES6的写法
 Number.parseInt('12.34') // 12
 Number.parseFloat('123.45#') // 123.45
-
-// toString 返回各种进制的字符串
-var myNumber=128; 
-myNumber.toString(16);   // returns 80 
-myNumber.toString(8);    // returns 200 
-myNumber.toString(2);    // returns 10000000 
-
-
-
-
 
 /--------------------------------------------------/
 
@@ -223,18 +293,13 @@ C();// 3
 注意： count似乎变成了全局变量
 
 /--------------------------------------------------/
-instanceof是判断实例对象的__proto__和生成该实例的构造函数的prototype是不是引用的同一个地址。
+
 
 
 在使用typeof运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象，它都返回"object"。
 ECMAScript引入了另一个Java运算符instanceof来解决这个问题。
 student1 instanceof Student    //true false
 /--------------------------------------------------/
-
-
-
-
-
 
 把对象的所有引用都设置为 null，可以强制性地废除对象
 
@@ -387,6 +452,7 @@ var sum = (num1, num2) => { return num1 + num2; }
 var sum = function(num1, num2) {
   return num1 + num2;
 };
+继承环境中的this指针
 /----------------------四种数据集合 array object set map ----------------------------/
 Set
 SET成员的值都是唯一的，没有重复的值
@@ -409,10 +475,10 @@ WeakSet 包含的是对象的弱引用，垃圾回收机制会忽略它；
 /--------------------------------------------------/
 Map
 传统对象是“字符串-值”的键值对
-Map是“值(内存地址)-值”的键值对
+Map是“值(内存地址)-值”的键值对  //键限制于字符串
 
 属性: size
-方法：set(key,val)  get(key)  has(key) delete(key)   clear()
+方法：set(key,val)  get(key)  has(key)  delete(key)   clear()
 
 //遍历方法
 for (let [key, value] of map.entries()) {
@@ -437,21 +503,6 @@ const map = new Map(Object.entries(obj));
 
 
 /********************************************************************/
-
-/--------------------------------------------------/
-闭包
-function A(){
-    function B(){
-       console.log('Hello Closure!');
-    }
-    return B;
-}
-var C = A();
-C();// Hello Closure!
-
-当一个内部函数(B)被其外部函数(A)之外的变量(C)引用时，就是闭包
-
-内部函数被保存到了外部，即为闭包
 
 
 

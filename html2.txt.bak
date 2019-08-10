@@ -1,0 +1,42 @@
+使用ul li时，注意去掉序号标签
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	li {
+		margin: 0;
+		padding: 0;
+	}
+}
+/*************************************/
+使用inline-block会有边距出现
+https://www.cnblogs.com/gavinzzh-firstday/p/5710712.html
+
+解决办法
+<li>
+	<a href="#">photo</a>
+</li
+><li>
+	<a href="#">stormy</a>
+</li
+
+/*************************************/
+float理解：
+
+被float的元素会脱离文档流，吸附到父元素的左边界/右边界
+
+
+.clearfix::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/******************定位*******************/
+https://www.cnblogs.com/chaixiaozhi/p/8481253.html
+
+z-index只对定位元素 有效， position:static的元素 设置z-index没有效果
+
+父子关系： 父元素的z-index和子元素的z-index比较没有意义，子元素永远在上面
+
+对于position：absolute的元素，由于已经脱离了文档流，width,height都要确定好；
