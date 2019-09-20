@@ -1,0 +1,310 @@
+/--------------------------------------------------/
+prop 是只读的
+
+
+/--------------------------------------------------/
+state 有点像计算属性
+
+State 的更新可能是异步的
+
+因为 this.props 和 this.state 可能会异步更新，所以你不要依赖他们的值来更新下一个状态。
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
+
+state的合并是浅合并；
+
+/--------------------------------------------------/
+事件处理， 注意驼峰形式
+<button onClick={activateLasers}>
+  Activate Lasers
+</button>
+
+
+事件回调函数需要绑定this 
+this.handleLoginClick = this.handleLoginClick.bind(this);
+
+
+向事件处理程序传递参数，两种方法，第一种方法更简单明了，第一种方法同时也绑定了this
+<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+
+<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+
+事件不能绑定在组建上，react只会把它当作一个prop
+
+/--------------------------------------------------/
+条件渲染除了可以使用if逻辑外，还可以使用 内联渲染
+
+与运算符&&
+    <div>
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+      }
+    </div>
+
+三目运算符
+<div>
+      {isLoggedIn ? (
+        <LogoutButton onClick={this.handleLogoutClick} />
+      ) : (
+        <LoginButton onClick={this.handleLoginClick} />
+      )}
+</div>
+
+条件渲染还有一种方法是 render里面返回null，这样即使父组件去调用了它，他也不会渲染出来，
+但是周期函数会被调用
+
+/--------------------------------------------------/
+列表渲染
+
+元素的 key 只有放在就近的数组上下文中才有意义。
+
+一个好的经验法则是：在 map() 方法中的元素需要设置 key 属性。
+
+在jsx中内联嵌入map
+
+    <ul>
+      {numbers.map((number) =>
+        <ListItem key={number.toString()}
+                  value={number} />
+
+      )}
+    </ul>
+
+/--------------------------------------------------/
+表单
+
+通过state来实现绑定
+
+<input type="text" value={this.state.value} onChange={this.handleChange} />
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+如果是多个输入表单
+
+<input
+name="isGoing"
+type="checkbox"
+checked={this.state.isGoing}
+onChange={this.handleInputChange} />
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+/--------------------------------------------------/
+组合的方式
+
+因为props 可以传递组件
+
+默认情况下是props.children
+
+<SplitPane
+	left={
+	<Contacts />
+	}
+	right={
+	<Chat />
+	}>
+
+	<div></div>
+
+</SplitPane>
+/--------------------------------------------------/
+router
+
+//注意 APP 组件里一定需要有{this.props.children}
+
+  <Router>
+    <Route path="/" component={App}>
+      {/* 当 url 为/时渲染 Dashboard */}
+      <IndexRoute component={Dashboard} />
+      <Route path="about" component={About} />
+      <Route path="inbox" component={Inbox}>
+        <Route path="messages/:id" component={Message} />
+      </Route>
+    </Route>
+  </Router>
+
+
+默认路由： IndexRoute的作用是，当子路由没有匹配到路径时，就默认这个组件填充APP的{this.props.children}
+
+如果需要在 Home 路由被渲染后才激活的指向 / 的链接，请使用 <IndexLink to="/">Home</IndexLink>
+
+
+加一个/  就变成了绝对路径
+ <Route path="/messages/:id" component={Message} />
+
+
+在路由传参方面，有这样一个方法：
+<Link
+  to={{
+    pathname: "/courses",
+    search: "?sort=name",
+    hash: "#the-hash",
+    state: { fromDashboard: true }
+  }}
+/>
+
+匹配的路由组件会有三个参数 match  location  history, 其中history是如下形式：（state值得注意！他应该就是Link 传递过来的state）
+{
+  key: 'ac3df4', // not with HashHistory!
+  pathname: '/somewhere'
+  search: '?some=search-string',
+  hash: '#howdy',
+  state: {
+    [userDefined]: true
+  }
+}
+
+不需要编程式导航，把元素作为Link的子元素就可以？
+
+
+/--------------------------------------------------/
+redux
+
+reducer 只是一个接收 state 和 action，并返回新的 state 的函数。
+
+state
+
+action
+
+reducer
+
+store
+
+核心思想是state,和修改方法都是通过prop传递给组件，从而实现数据实时更新与传递
+
+/--------------------------------------------------/
+Fragment  让列表也可以返回
+
+const App = () => (
+  <React.Fragment>
+	<td>1</td>
+	<td>2</td>
+  </React.Fragment>
+);
+
+/--------------------------------------------------/
+componentWillReceiveProps  初始化render不执行，后续更新就执行
+
+//周期函数关系图
+https://segmentfault.com/a/1190000016494335?utm_source=tag-newest
+
+那么为什么我们需要 componentWillReceiveProps？ 
+因为在这里我们能抽取出新的props并且更新内部状态，
+比如我们可能有一些状态，这些状态是props的计算结果，
+那么我们就可以在这个方法里写逻辑，使用this.setState()来存储结果。
+
+
+/--------------------------------------------------/
+mobx
+
+
+/--------------------------------------------------/
+ref的使用
+1，首先创造，与实例属性绑定
+this.textInput = React.createRef();
+
+2，在渲染函数里调用；
+<input
+  type="text"
+  ref={this.textInput} />
+
+3，使用的时候
+this.textInput.current.focus();
+
+与原生dom绑定获得的是dom元素，与class组件绑定获得的是实例
+
+/--------------------------------------------------/
+
+高级指引部分
+
+代码分离（动态导入）
+https://react-router.docschina.org/web/guides/code-splitting
+使用react-loadable
+
+import Loadable from 'react-loadable';
+import Loading from './Loading';
+
+const LoadableComponent = Loadable({
+  loader: () => import('./Dashboard'),
+  loading: Loading,
+})
+
+export default class LoadableDashboard extends React.Component {
+  render() {
+    return <LoadableComponent />;
+  }
+}
+
+
+/--------------------------------------------------/
+ref使用：
+管理焦点 文本选择  媒体播放
+触发动画
+集成DOM库？
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  render() {
+    return <div ref={this.myRef} />;
+  }
+}
+
+访问ref
+const node = this.myRef.current;
+
+dom元素上的ref是 dom元素
+自定义class组件上的ref是 实例
+
+如果想用子组件的某个DOM， 就使用 ref 转发
+/--------------------------------------------------/
+
+回调ref的使用：
+this.textInput = null;
+
+this.setTextInputRef = element => {
+	this.textInput = element;
+};
+
+<input
+	type="text"
+	ref={this.setTextInputRef}
+/>
+
+访问ref的时候，就不用current
+
+/--------------------------------------------------/
+梳理一下：
+ref转发的使用场景是： 父组件想使用子组件的一个DOM，焦点调用
+
+但是在ref转发中介绍了高阶组件，所以先了解高阶组件；
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -43,3 +43,8 @@ re.test('010 12345'); // false
 
 
 
+
+let key = value.match(/^.*\/([a-z_]+).json$/, '')[1]
+
+
+

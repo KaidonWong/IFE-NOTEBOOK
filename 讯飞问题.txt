@@ -1,0 +1,11 @@
+项目一开始会初始化一个 application 单例
+
+react route 如何实现编程式导航，只有Link， 答：Link的子元素；
+
+项目的国际化local 用到了inject
+
+mobx变量用到了inject
+
+
+let key = value.match(/^.*\/([a-z_]+).json$/, '')[1]
+
